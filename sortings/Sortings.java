@@ -1,9 +1,11 @@
 package sortings;
 
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Sortings{
-    public static void main(String[] args) {
+       public static void main(String[] args) {
         // int []array={-1,-1-22,-33,-44,-2,-2,-44,-55,-55,-77};
         // System.out.println("Before sorting = "+Arrays.toString(array));
         // Sortings.ascendingOrder(array);
@@ -12,7 +14,7 @@ public class Sortings{
         // Sortings.minMaxValue(array);
        
         // Sortings.secondLargestElement(array);
-        Sortings.missingNumber();
+        Sortings.frequencyOfChar();
     }
 
     public static void ascendingOrder(int []arr){
@@ -122,14 +124,30 @@ int [][]array={{2,3,10},
             System.out.println(value);
     }
 public static void missingNumber(){
-    int[] arr={0,2,3,5,6,7,8,9};
-    int target=0;
+    int [] arr={1,2,3,5,6,7,8,9};
+    int target=1;
     for(int i=0;i<arr.length;i++){
         if(arr[i]!=target){
-            System.out.println("missing Number: "+arr[i-1]);
-            target++;
+            System.out.println("missing Number: "+target);
+            target++;           
         }
-        if(arr[i]==target){target++;}
+        target++;
+   }
+}
+public static void frequencyOfChar(){
+     Scanner scanner=new Scanner(System.in);
+
+    System.out.print("Enter a String: ");
+    String str=scanner.nextLine().toUpperCase();
+    char []arr=str.toCharArray();
+    int[]frequency=new int[26];
+    for(int i=0;i<arr.length;i++){
+        frequency[arr[i]-'A']++;
     }
+    for(int i=0;i<26;i++){
+        System.out.println((char)(i+'A')+" = "+frequency[i]);
+    }
+
+    
 }
 }
